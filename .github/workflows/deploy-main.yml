@@ -1,11 +1,11 @@
-name:
+name: Build
 
-  on:
-    push:
-      tags:
-        -'v*'
-      jobs:
+on:
+  push:
+    tags:
+      - 'v*'
 
+jobs:
 
   createrelease:
     name: Create Release
@@ -38,7 +38,7 @@ name:
         include:
           - os: windows-latest
             TARGET: windows
-            CMD_BUILD: pyinstaller -F -n g-password.py
+            CMD_BUILD: pyinstaller -F -n g-password main.py
             OUT_FILE_NAME: g-password.exe
             ASSET_MIME: application/vnd.microsoft.portable-executable
 
